@@ -34,14 +34,19 @@ import java.io.IOException;
  * On the client side, use a single {@link BluetoothSocket} to both initiate
  * an outgoing connection and to manage the connection.
  *
- * <p>The most common type of Bluetooth socket is RFCOMM, which is the type
- * supported by the Android APIs. RFCOMM is a connection-oriented, streaming
- * transport over Bluetooth. It is also known as the Serial Port Profile (SPP).
+ * <p>The most common type of Bluetooth socket is RFCOMM. RFCOMM is a
+ * connection-oriented, streaming transport over Bluetooth. It is also known as
+ * the Serial Port Profile (SPP).
+ *
+ * <p>The another type of Bluetooth socket is L2CAP. L2CAP is a
+ * connection-oriented, packet based transport over Bluetooth.
  *
  * <p>To create a listening {@link BluetoothServerSocket} that's ready for
  * incoming connections, use
  * {@link BluetoothAdapter#listenUsingRfcommWithServiceRecord
- * BluetoothAdapter.listenUsingRfcommWithServiceRecord()}. Then call
+ * BluetoothAdapter.listenUsingRfcommWithServiceRecord()} or {@link
+ * BluetoothAdapter#listenUsingL2capWithServiceRecord
+ * BluetoothAdapter.listenUsingL2capWithServiceRecord()}. Then call
  * {@link #accept()} to listen for incoming connection requests. This call
  * will block until a connection is established, at which point, it will return
  * a {@link BluetoothSocket} to manage the connection. Once the {@link

@@ -45,14 +45,19 @@ import java.nio.ByteBuffer;
  * On the client side, use a single {@link BluetoothSocket} to both initiate
  * an outgoing connection and to manage the connection.
  *
- * <p>The most common type of Bluetooth socket is RFCOMM, which is the type
- * supported by the Android APIs. RFCOMM is a connection-oriented, streaming
- * transport over Bluetooth. It is also known as the Serial Port Profile (SPP).
+ * <p>The most common type of Bluetooth socket is RFCOMM. RFCOMM is a
+ * connection-oriented, streaming transport over Bluetooth. It is also known as
+ * the Serial Port Profile (SPP).
+ *
+ * <p>The another type of Bluetooth socket is L2CAP. L2CAP is a
+ * connection-oriented, packet based transport over Bluetooth.
  *
  * <p>To create a {@link BluetoothSocket} for connecting to a known device, use
  * {@link BluetoothDevice#createRfcommSocketToServiceRecord
- * BluetoothDevice.createRfcommSocketToServiceRecord()}.
- * Then call {@link #connect()} to attempt a connection to the remote device.
+ * BluetoothDevice.createRfcommSocketToServiceRecord()} or {@link
+ * BluetoothAdapter#listenUsingL2capWithServiceRecord
+ * BluetoothAdapter.listenUsingL2capWithServiceRecord()}.  Then call {@link
+ * #connect()} to attempt a connection to the remote device.
  * This call will block until a connection is established or the connection
  * fails.
  *
